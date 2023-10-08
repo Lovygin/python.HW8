@@ -8,7 +8,7 @@ def add_row():
     town = input("Write your place of residence: ")
     data, nf = data_file()
     now_number_row = len(data) + 1
-    with open(f'Python/Seminars/8Seminar/db/data_{nf}.txt', 'a', encoding='utf-8') as file:
+    with open(f'db/data_{nf}.txt', 'a', encoding='utf-8') as file:
         file.write(f'{now_number_row};{name}; '
                    f'{surname};{birthdate};{town}\n')
     print("Data added successfuly!")

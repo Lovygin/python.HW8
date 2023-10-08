@@ -4,7 +4,7 @@
 def searching_data():
     request, flag = input("Write the data for searcing\n--> "), False
     for i in range(1, 3):
-        with open(f'Python/Seminars/8Seminar/db/data_{i}.txt', 
+        with open(f'db/data_{i}.txt', 
                   'r', encoding = 'utf-8') as file:
             #file = list(file)
             for line in file:

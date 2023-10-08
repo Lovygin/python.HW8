@@ -46,8 +46,7 @@ def start_menu():
             print_file()
         elif command == 5:
             searching_data()
-        else:
+        elif command == 6:
             copying_row()
-
     print("Thank you for using our services. Come to us again!\n"
           "Good luck!")

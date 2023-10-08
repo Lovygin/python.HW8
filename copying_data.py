@@ -1,6 +1,7 @@
 from return_data_file import data_file
 from choice_file import choice_number_file
 
+
 def copying_row():
     data, nf = data_file()
     count_rows = len(data)
@@ -15,23 +16,13 @@ def copying_row():
                                    f"from 1 to {count_rows}: "))
         dublicate = data[number_row - 1]
     
-        if nf == 1:
-            with open(f'Python/Seminars/8Seminar/db/data_{nf + 1}.txt', 'r+', encoding='utf-8') as file:
-                #lines = file.readlines() #чтение всех строк из файла - дорого
-                file.seek(0,2) # Перемещаем курсор к последнему символу в файле
-                has_newline = file.tell() > 0 # Проверка, есть ли символы в последней строке (длина больше 0?)
-                if has_newline:
-                    dublicate = f'\n{str(count_rows + 1) + dublicate[1:]}\n'
-                else:
-                    dublicate = f'{str(count_rows + 1) + dublicate[1:]}\n'
-                file.write(dublicate)
-        else:
-            with open(f'Python/Seminars/8Seminar/db/data_{nf - 1}.txt', 'r+', encoding='utf-8') as file:
-                file.seek(0,2) # Перемещаем курсор к последнему символу в файле
-                has_newline = file.tell() > 0 # Проверка, есть ли символы в последней строке (длина больше 0?)
-                if has_newline:
-                    dublicate = f'\n{str(count_rows + 1) + dublicate[1:]}\n'
-                else:
-                    dublicate = f'{str(count_rows + 1) + dublicate[1:]}\n'
-                file.write(dublicate)
+        nf = choice_number_file()
 
+        with open(f'db/data_{nf}.txt', 'r+', encoding='utf-8') as file:
+            data = file.readlines()
+            if data[-1][-1] not in '\n':
+                dublicate = f'\n{str(count_rows) + dublicate[1:]}'
+            else:
+                dublicate = f'{str(count_rows + 1) + dublicate[1:]}'
+            file.write(dublicate)
+            print(file)

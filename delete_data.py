@@ -19,7 +19,7 @@ def delete_row():
                 f'{data[i].split(";")[3]};'
                 f'{data[i].split(";")[4]}'
                 for i in range(len(data))]
-        with open(f'Python/Seminars/8Seminar/db/data_{nf}.txt', 
+        with open(f'db/data_{nf}.txt', 
                   'w', encoding='utf-8') as file:
             file.writelines(data)
         print("Row removed successfuly!")
